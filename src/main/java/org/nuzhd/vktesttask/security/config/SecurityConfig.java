@@ -21,11 +21,10 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(
                         authorize -> authorize
-                                .requestMatchers("/auditevents").permitAll()
                                 .requestMatchers("/api/v1/posts/**").hasAnyRole("ADMIN", "POSTS")
                                 .requestMatchers("/api/v1/albums/**").hasAnyRole("ADMIN", "ALBUMS")
                                 .requestMatchers("/api/v1/users/**").hasAnyRole("ADMIN", "USERS")
-                                .requestMatchers("/api/v1/auth/**").permitAll()
+                                .requestMatchers("/api/v1/admin/**").hasRole("ADMIN")
                                 .anyRequest().authenticated()
                 )
                 .httpBasic(withDefaults())

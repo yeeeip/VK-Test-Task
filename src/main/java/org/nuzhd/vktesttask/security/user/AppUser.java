@@ -2,6 +2,7 @@ package org.nuzhd.vktesttask.security.user;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -16,6 +17,9 @@ import static lombok.AccessLevel.PRIVATE;
 
 @FieldDefaults(level = PRIVATE)
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "app_user")
 public class AppUser implements UserDetails {
