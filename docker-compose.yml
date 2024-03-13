@@ -1,20 +1,22 @@
 services:
   my_app:
+    image: my_app
     depends_on:
       - postgres
-    image: my_app
     build:
       dockerfile: Dockerfile
     ports:
       - "8080:8080"
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/my_db
+    restart: on-failure
     networks:
       - my_net
   postgres:
     image: postgres:15.6
     ports:
       - "5432:5432"
+    restart: unless-stopped
     environment:
       - POSTGRES_DB=my_db
       - POSTGRES_USER=postgres

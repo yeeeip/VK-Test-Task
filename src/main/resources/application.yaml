@@ -1,11 +1,3 @@
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-  endpoint:
-    auditevents:
-      path: /auditevents
 spring:
   sql:
     init:
