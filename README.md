@@ -9,6 +9,7 @@ In order to start the application, clone this repository with ```git clone https
 
 If you have updated your docker compose recently, you may encounter the exception that tells you something like that: 
 >Cannot invoke "org.springframework.boot.docker.compose.core.DockerCliInspectResponse.hostConfig()" because "inspectResponse" is null
+
 This exception is caused because of docker compose newer versions are incompatible with spring-docker-compose-support dependency
 
 To avoid this exception you should use ```docker compose up``` to start the app without maven.
